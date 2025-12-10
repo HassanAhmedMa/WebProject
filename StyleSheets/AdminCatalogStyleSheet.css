@@ -1,0 +1,334 @@
+/* ============================================================
+   COLOR VARIABLES
+============================================================ */
+:root {
+    --light-bg: #FAF3E1;
+    --light-secondary: #F5E7C6;
+    --dark-bg: #262626;
+    --dark-panel: #333;
+    --accent: #FF6D1F;
+    --black: #000;
+    --text-dark: #222;
+    --text-light: #fff;
+}
+
+/* ============================================================
+   GLOBAL PAGE BACKGROUND
+============================================================ */
+body.theme-light {
+    background: var(--light-bg);
+    color: var(--text-dark);
+}
+
+body.theme-dark {
+    background: var(--dark-bg);
+    color: var(--text-light);
+}
+
+/* ============================================================
+   SIDEBAR
+============================================================ */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Light mode sidebar */
+body.theme-light .sidebar {
+    background: #F5E7C6;
+    color: #FF6D1F !important;
+}
+
+/* Dark mode sidebar */
+body.theme-dark .sidebar {
+    background: #111;
+    color: #FF6D1F !important;
+}
+
+/* Sidebar icons/text */
+.sidebar .nav-link,
+.sidebar iconify-icon {
+    color: #FF6D1F !important;
+    font-size: 15px;
+}
+
+/* Hover */
+.sidebar .nav-link:hover {
+    background-color: rgba(255,255,255,0.12) !important;
+    border-radius: 6px;
+}
+
+/* Active */
+.sidebar .nav-link.active {
+    font-weight: bold;
+}
+
+/* ============================================================
+   TOP BAR
+============================================================ */
+#dateTimeBox {
+    font-size: 14px;
+}
+
+body.theme-dark #dateTimeBox {
+    color: white;
+}
+
+/* ============================================================
+   TAB BUTTONS (Borrowed / Overdue)
+============================================================ */
+.tab-btn {
+    padding: 10px 25px;
+    border-radius: 12px;
+    font-weight: 500;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+/* Light mode tabs */
+body.theme-light .tab-active {
+    background: black;
+    color: white;
+}
+
+body.theme-light .tab-inactive {
+    background: #E5E5E5;
+    color: black;
+}
+
+/* Dark mode tabs */
+body.theme-dark .tab-active {
+    background: white;
+    color: black;
+}
+
+body.theme-dark .tab-inactive {
+    background: #555;
+    color: white;
+}
+
+/* ============================================================
+   CONTENT BOX AREA
+============================================================ */
+.content-box {
+    border-radius: 12px;
+}
+
+/* Light */
+body.theme-light .content-box {
+    background: var(--light-secondary);
+    color: black;
+}
+
+/* Dark */
+body.theme-dark .content-box {
+    background: var(--dark-panel);
+    color: white;
+}
+
+/* ============================================================
+   TABLE STYLING
+============================================================ */
+
+/* Transparent table */
+.content-box table,
+.content-box table tr,
+.content-box table th,
+.content-box table td {
+    background: transparent !important;
+}
+
+/* Table borders */
+body.theme-light .content-box table th,
+body.theme-light .content-box table td {
+    border-color: rgba(0, 0, 0, 0.15);
+    color: black;
+}
+
+body.theme-dark .content-box table th,
+body.theme-dark .content-box table td {
+    border-color: rgba(255, 255, 255, 0.25);
+    color: white !important;
+}
+
+/* Hover */
+.content-box table tr:hover td {
+    background-color: rgba(255,255,255,0.08) !important;
+    transition: 0.15s ease;
+}
+
+/* ============================================================
+   THEME SWITCH BUTTON (TOP RIGHT)
+============================================================ */
+.theme-switch {
+    cursor: pointer;
+}
+
+.switch-track {
+    width: 60px;
+    height: 28px;
+    background: #ddd;
+    border-radius: 50px;
+    padding: 3px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.switch-thumb {
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Dark mode thumb position */
+body.theme-dark .switch-thumb {
+    transform: translateX(32px);
+}
+
+/* Dark mode track */
+body.theme-dark .switch-track {
+    background: #444;
+}
+
+/* Icon visibility */
+#sunIcon { display: none; }
+body.theme-light #sunIcon { display: block; }
+
+body.theme-dark #moonIcon { display: block; }
+body.theme-light #moonIcon { display: none; }
+/* Overlay Background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Popup Box */
+.popup-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 450px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Inputs */
+.popup-input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+}
+
+/* Footer Buttons */
+.popup-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-cancel {
+    background: #e5e5e5;
+}
+
+.popup-add {
+    background: #000;
+    color: #fff;
+}
+
+
+.validation-text {
+    display: block;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.input-error {
+    border: 2px solid #ff3b3b !important;
+}
+
+.input-success {
+    border: 2px solid #27c227 !important;
+}
+
+
+/* ============================================
+   POPUPS — DARK MODE OVERRIDE
+   (forces text to stay black even in dark theme)
+============================================ */
+
+body.theme-dark .popup-box {
+    background: #ffffff !important;
+    color: #000 !important;
+}
+
+/* Make popup titles black */
+body.theme-dark .popup-box h4,
+body.theme-dark .popup-header,
+body.theme-dark .popup-header * {
+    color: #000 !important;
+}
+
+/* Inputs inside popups */
+body.theme-dark .popup-input {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #333 !important;
+}
+
+/* Validation text */
+body.theme-dark .validation-text {
+    color: #000 !important;
+}
+
+/* Text inside popup content */
+body.theme-dark .popup-body,
+body.theme-dark .popup-body *,
+body.theme-dark .view-content-box *,
+body.theme-dark .popup-footer *,
+body.theme-dark #viewISBN,
+body.theme-dark #viewTitle,
+body.theme-dark #viewAuthors,
+body.theme-dark #viewPublisher,
+body.theme-dark #viewYear,
+body.theme-dark #viewTotalCopies,
+body.theme-dark #viewAvailableCopies {
+    color: #000 !important;
+}
+
+/* Close icons stay dark */
+body.theme-dark .popup-close-btn iconify-icon {
+    color: #000 !important;
+}
+
+/* Buttons */
+body.theme-dark .popup-btn.popup-cancel {
+    background: #e5e5e5 !important;
+    color: #000 !important;
+}
+
+body.theme-dark .popup-btn.popup-add {
+    background: #000 !important;
+    color: #fff !important;
+}

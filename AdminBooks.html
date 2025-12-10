@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookWorm | Book Management</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="StyleSheets/style.css">
+
+    <!-- Page-specific -->
+    <link rel="stylesheet" href="StyleSheets/AdminCatalogStyleSheet.css">
+</head>
+
+<body class="theme-light">
+
+    <div class="d-flex h-100">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar p-4 d-flex flex-column">
+
+            <div class="text-center mb-5">
+                <iconify-icon icon="mdi:library" width="70" class="mb-3"></iconify-icon>
+                <h2 class="fw-light mb-0">BookWorm</h2>
+                <p class="text-uppercase small mt-0">LIBRARY</p>
+            </div>
+
+            <nav class="flex-grow-1">
+                <ul class="list-unstyled">
+
+                    <li class="mb-3">
+                        <a href="AdminDashboard.html" class="nav-link">
+                            <iconify-icon icon="mdi:view-dashboard-outline" width="20" class="me-2"></iconify-icon>
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li class="mb-3">
+                        <a href="AdminCatalog.html" class="nav-link">
+                            <iconify-icon icon="mdi:bookshelf" width="20" class="me-2"></iconify-icon>
+                            Catalog
+                        </a>
+                    </li>
+
+                    <li class="mb-3 active">
+                        <a href="AdminBooks.html" class="nav-link">
+                            <iconify-icon icon="mdi:book-outline" width="20" class="me-2"></iconify-icon>
+                            Books
+                        </a>
+                    </li>
+
+                    <li class="mb-3">
+                        <a href="#" class="nav-link">
+                            <iconify-icon icon="mdi:account-group-outline" width="20" class="me-2"></iconify-icon>
+                            Users
+                        </a>
+                    </li>
+
+
+
+                </ul>
+            </nav>
+
+            <a href="index.html" class="nav-link mt-auto">
+                <iconify-icon icon="mdi:logout" width="20" class="me-2"></iconify-icon>
+                Log Out
+            </a>
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="flex-grow-1 p-4">
+
+            <!-- TOP BAR -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <div class="d-flex align-items-center">
+                    <iconify-icon icon="mdi:account-circle" width="40" class="me-2"></iconify-icon>
+                    <div>
+                        <div class="fw-bold">Nisal Gunasekara</div>
+                        <small>Admin</small>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div id="dateTimeBox" class="text-end"></div>
+
+                    <div id="themeToggle" class="theme-switch">
+                        <div class="switch-track">
+                            <div class="switch-thumb d-flex justify-content-center align-items-center">
+                                <iconify-icon id="sunIcon" icon="mdi:weather-sunny" width="18"></iconify-icon>
+                                <iconify-icon id="moonIcon" icon="mdi:weather-night" width="18"
+                                    style="display:none;"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <iconify-icon icon="mdi:cog-outline" width="26"></iconify-icon>
+                </div>
+            </div>
+
+            <!-- PAGE TITLE + BUTTON + SEARCH -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold">Book Management</h4>
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <!-- Add ID HERE -->
+                    <button id="addBookBtn" class="btn btn-dark d-flex align-items-center">
+                        <iconify-icon icon="mdi:plus-circle" width="18" class="me-1"></iconify-icon>
+                        Add Book
+                    </button>
+
+                    <div class="input-group" style="width: 250px;">
+                        <span class="input-group-text bg-white">
+                            <iconify-icon icon="mdi:magnify" width="18"></iconify-icon>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Search by ID or Type">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CONTENT BOX -->
+            <div class="content-box p-4 rounded-3 shadow-sm">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ISBN</th>
+                            <th>Title</th>
+                            <th>Author(s)</th>
+                            <th>Publisher</th>
+                            <th>Year</th>
+                            <th>Total Copies</th>
+                            <th>Available</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="booksTableBody">
+                        <tr>
+                            <td>978-0132350884</td>
+                            <td>Hibernate Core - 11th</td>
+                            <td>John Doe</td>
+                            <td>TechPress Publishers</td>
+                            <td>2011</td>
+                            <td>10</td>
+                            <td>6</td>
+
+                            <td>
+                                <iconify-icon icon="mdi:pencil" class="me-2 edit-book-icon"></iconify-icon>
+                                <iconify-icon icon="mdi:trash-can" class="me-2 delete-icon"></iconify-icon>
+                                <iconify-icon icon="mdi:book-check" class="view-book-icon"></iconify-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+    <!-- ======================== ADD BOOK POPUP ======================== -->
+<div id="addBookOverlay" class="popup-overlay d-none">
+    <div class="popup-box">
+
+        <!-- HEADER -->
+        <div class="popup-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <iconify-icon icon="mdi:book-plus" width="30" class="me-2"></iconify-icon>
+                <h4 class="m-0">Add Book</h4>
+            </div>
+
+            <button class="popup-close-btn" id="closePopupBtn">
+                <iconify-icon icon="mdi:close" width="22"></iconify-icon>
+            </button>
+        </div>
+
+        <hr>
+
+        <!-- BODY -->
+        <div class="popup-body">
+
+            <!-- ISBN -->
+            <input type="text" id="bookISBN" class="popup-input" placeholder="ISBN (13 digits)" maxlength="13">
+            <small id="isbnWarning" class="validation-text"></small>
+
+            <!-- Title -->
+            <input type="text" id="bookTitle" class="popup-input" placeholder="Book Title" required>
+
+            <!-- Author(s) -->
+            <input type="text" id="bookAuthors" class="popup-input" placeholder="Author(s)" required>
+
+            <!-- Publisher -->
+            <input type="text" id="bookPublisher" class="popup-input" placeholder="Publisher">
+
+            <!-- Publication Year -->
+            <input type="number" id="bookYear" class="popup-input" placeholder="Publication Year">
+
+            <!-- Two inputs side-by-side -->
+            <div class="d-flex gap-3">
+                <input type="number" id="bookTotalCopies" class="popup-input flex-grow-1" placeholder="Total Copies" required>
+                <input type="number" id="bookAvailableCopies" class="popup-input" placeholder="Available Copies" required>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="popup-footer d-flex gap-3">
+            <button id="cancelPopupBtn" class="popup-btn popup-cancel">CANCEL</button>
+            <button id="addBookConfirmBtn" class="popup-btn popup-add" disabled>ADD</button>
+        </div>
+
+    </div>
+</div>
+<!-- ======================== END POPUP ======================== -->
+
+
+<!-- ======================== DELETE POPUP ======================== -->
+<div id="deletePopupOverlay" class="popup-overlay d-none">
+    <div class="popup-box">
+
+        <!-- HEADER -->
+        <div class="popup-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <iconify-icon icon="mdi:trash-can" width="30" class="me-2"></iconify-icon>
+                <h4 class="m-0">Delete Confirmation</h4>
+            </div>
+
+            <button id="deleteCloseBtn" class="popup-close-btn">
+                <iconify-icon icon="mdi:close" width="22"></iconify-icon>
+            </button>
+        </div>
+
+        <hr>
+
+        <!-- BODY -->
+        <div class="popup-body text-center">
+            <p>"Are you certain you wish to proceed with the deletion of the selected entry?"</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="popup-footer d-flex justify-content-center">
+            <button id="deleteConfirmBtn" class="popup-btn popup-add" style="width: 150px;">
+                CONFIRM
+            </button>
+        </div>
+
+    </div>
+</div>
+<!-- ======================== VIEW BOOK POPUP ======================== -->
+<div id="viewBookOverlay" class="popup-overlay d-none">
+    <div class="popup-box" style="max-width: 700px;">
+
+        <!-- HEADER -->
+        <div class="popup-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <iconify-icon icon="mdi:book-open-variant" width="30" class="me-2"></iconify-icon>
+                <h4 class="m-0">View Book</h4>
+            </div>
+
+            <button id="viewCloseBtn" class="popup-close-btn">
+                <iconify-icon icon="mdi:close" width="22"></iconify-icon>
+            </button>
+        </div>
+
+        <hr>
+
+        <!-- CONTENT -->
+        <div class="p-3 d-flex justify-content-between align-items-start view-content-box">
+
+            <div>
+                <p><strong>ISBN:</strong> <span id="viewISBN"></span></p>
+                <p><strong>Title:</strong> <span id="viewTitle"></span></p>
+                <p><strong>Author(s):</strong> <span id="viewAuthors"></span></p>
+                <p><strong>Publisher:</strong> <span id="viewPublisher"></span></p>
+                <p><strong>Year:</strong> <span id="viewYear"></span></p>
+                <p><strong>Total Copies:</strong> <span id="viewTotalCopies"></span></p>
+                <p><strong>Available:</strong> <span id="viewAvailableCopies"></span></p>
+            </div>
+
+            <div style="border-left: 1px solid #ccc; padding-left: 20px;">
+                <p><strong>Saved By:</strong></p>
+                <p>Nisal Gunasekara<br>(Admin)</p>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="text-center mt-4">
+            <button id="viewCloseBtn2" class="popup-btn popup-add" style="width: 200px;">CLOSE</button>
+        </div>
+
+    </div>
+</div>
+<!-- ======================== END VIEW POPUP ======================== -->
+
+<!-- ======================== END DELETE POPUP ======================== -->
+
+
+<!-- ======================== EDIT BOOK POPUP ======================== -->
+<div id="editBookOverlay" class="popup-overlay d-none">
+    <div class="popup-box">
+
+        <!-- HEADER -->
+        <div class="popup-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <iconify-icon icon="mdi:book-edit" width="30" class="me-2"></iconify-icon>
+                <h4 class="m-0">Update Book</h4>
+            </div>
+
+            <button class="popup-close-btn" id="editCloseBtn">
+                <iconify-icon icon="mdi:close" width="22"></iconify-icon>
+            </button>
+        </div>
+
+        <hr>
+
+        <!-- BODY -->
+        <div class="popup-body">
+
+            <!-- ISBN (disabled, cannot be changed) -->
+            <input type="text" id="editISBN" class="popup-input" disabled>
+
+            <!-- Title -->
+            <input type="text" id="editTitle" class="popup-input" placeholder="Title">
+
+            <!-- Authors -->
+            <input type="text" id="editAuthors" class="popup-input" placeholder="Author(s)">
+
+            <!-- Publisher -->
+            <input type="text" id="editPublisher" class="popup-input" placeholder="Publisher">
+
+            <!-- Publication Year -->
+            <input type="number" id="editYear" class="popup-input" placeholder="Publication Year">
+
+            <!-- Total + Available -->
+            <div class="d-flex gap-3">
+                <input type="number" id="editTotalCopies" class="popup-input flex-grow-1" placeholder="Total Copies">
+                <input type="number" id="editAvailableCopies" class="popup-input" placeholder="Available Copies">
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="popup-footer d-flex gap-3">
+            <button id="editCancelBtn" class="popup-btn popup-cancel">CANCEL</button>
+            <button id="editConfirmBtn" class="popup-btn popup-add">UPDATE</button>
+        </div>
+
+    </div>
+</div>
+<!-- ======================== END EDIT POPUP ======================== -->
+
+
+
+
+    <script src="jsFiles/AdminCatalog.js"></script>
+    <script src="Scripts/AdminTheme.js"></script>
+
+</body>
+
+</html>

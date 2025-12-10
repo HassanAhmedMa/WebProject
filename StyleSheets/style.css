@@ -1,0 +1,114 @@
+:root {
+    --light-bg: #FAF3E1;
+    --secondary-bg: #F5E7C6;
+    --accent: #FF6D1F;
+    --dark: #222222;
+}
+
+/* BODY THEMES */
+body.theme-light {
+    background-color: var(--light-bg);
+    color: var(--dark);
+}
+
+body.theme-dark {
+    background-color: var(--dark);
+    color: white;
+}
+
+/* LEFT PANEL */
+body.theme-light .left-panel {
+    background-color: var(--light-bg);
+}
+
+body.theme-dark .left-panel {
+    background-color: #111; /* darker contrast for dark mode */
+}
+
+/* RIGHT PANEL */
+body.theme-light .right-panel {
+    background-color: var(--secondary-bg);
+}
+
+body.theme-dark .right-panel {
+    background-color: var(--dark);
+}
+
+/* ACCENT BUTTONS */
+.btn-accent {
+    background-color: var(--accent);
+    color: white;
+    border-radius: 50px;
+}
+
+.btn-accent:hover {
+    background-color: #e85f13;
+    color: white;
+}
+
+.btn-outline-accent {
+    color: var(--accent);
+    border-color: var(--accent);
+    border-radius: 50px;
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--accent);
+    color: #FFF;
+}
+
+/* FORM WIDTH */
+.left-form { 
+    max-width: 420px; 
+    width: 100%; 
+}
+
+/* THEME SWITCH TOGGLE */
+.theme-switch {
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.switch-track {
+    width: 65px;
+    height: 32px;
+    background: #f0f0f0; /* light mode track */
+    border-radius: 50px;
+    padding: 3px;
+    transition: background 0.3s ease-in-out;
+    position: relative;
+}
+
+body.theme-dark .switch-track {
+    background: #ffffff; /* your dark */
+}
+
+.switch-thumb {
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+body.theme-dark .switch-thumb {
+    transform: translateX(33px);
+    background: #000;
+}
+
+/* ICON LOGIC */
+.switch-thumb iconify-icon {
+    transition: opacity 0.2s ease-in-out;
+}
+
+body.theme-light #sunIcon { display: block; }
+body.theme-light #moonIcon { display: none; }
+
+body.theme-dark #sunIcon { display: none; }
+body.theme-dark #moonIcon { display: block; }
+body.theme-dark .text-muted {
+    color: #ffffff !important;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookWorm | Admin Catalog</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+    <!-- GLOBAL SHARED STYLES (LOGIN/SIGNUP/DARKMODE) -->
+    <link rel="stylesheet" href="StyleSheets/style.css">
+
+    <!-- PAGE-SPECIFIC STYLES -->
+    <link rel="stylesheet" href="StyleSheets/AdminCatalogStyleSheet.css">
+</head>
+
+<body class="theme-light">
+
+    <!-- MAIN LAYOUT WRAPPER -->
+    <div class="d-flex h-100">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar text-white p-4 d-flex flex-column">
+
+            <div class="text-center mb-5">
+                <iconify-icon icon="mdi:library" width="70" class="mb-3"></iconify-icon>
+                <h2 class="fw-light mb-0">BookWorm</h2>
+                <p class="text-uppercase small mt-0">LIBRARY</p>
+            </div>
+
+            <nav class="flex-grow-1">
+                <ul class="list-unstyled">
+
+                    <li class="mb-3">
+                        <a href="#" class="nav-link text-white">
+                            <iconify-icon icon="mdi:view-dashboard-outline" width="20" class="me-2"></iconify-icon>
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li class="mb-3 active">
+                        <a href="AdminCatalog.html" class="nav-link text-white">
+                            <iconify-icon icon="mdi:bookshelf" width="20" class="me-2"></iconify-icon>
+                            Catalog
+                        </a>
+                    </li>
+
+                    <li class="mb-3">
+                        <a href="AdminBooks.html" class="nav-link text-white">
+                            <iconify-icon icon="mdi:book-outline" width="20" class="me-2"></iconify-icon>
+                            Books
+                        </a>
+                    </li>
+
+                    <li class="mb-3">
+                        <a href="#" class="nav-link text-white">
+                            <iconify-icon icon="mdi:account-group-outline" width="20" class="me-2"></iconify-icon>
+                            Users
+                        </a>
+                    </li>
+
+
+
+                </ul>
+            </nav>
+
+            <a href="index.html" class="nav-link text-white mt-auto">
+                <iconify-icon icon="mdi:logout" width="20" class="me-2"></iconify-icon>
+                Log Out
+            </a>
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="flex-grow-1 p-4">
+
+            <!-- TOP BAR -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <!-- ADMIN INFO -->
+                <div class="d-flex align-items-center">
+                    <iconify-icon icon="mdi:account-circle" width="40" class="me-2"></iconify-icon>
+                    <div>
+                        <div class="fw-bold">Nisal Gunasekara</div>
+                        <small>Admin</small>
+                    </div>
+                </div>
+
+                <!-- TIME + TOGGLE + SETTINGS -->
+                <div class="d-flex align-items-center gap-3">
+
+                    <div id="dateTimeBox" class="text-end"></div>
+
+                    <!-- THEME TOGGLE -->
+                    <div id="themeToggle" class="theme-switch">
+                        <div class="switch-track">
+                            <div class="switch-thumb d-flex justify-content-center align-items-center">
+                                <iconify-icon id="sunIcon" icon="mdi:weather-sunny" width="18"></iconify-icon>
+                                <iconify-icon id="moonIcon" icon="mdi:weather-night" width="18" style="display:none;"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <iconify-icon icon="mdi:cog-outline" width="26"></iconify-icon>
+                </div>
+            </div>
+
+            <!-- TABS -->
+            <div class="d-flex gap-3 mb-3">
+                <button class="btn btn-dark" id="borrowedTab">Borrowed Books</button>
+                <button class="btn btn-outline-dark" id="overdueTab">Overdue Borrowers</button>
+            </div>
+
+            <!-- CONTENT BOX -->
+            <div class="content-box p-4 rounded-3 shadow-sm">
+
+                <!-- Borrowed Books Table -->
+                <div id="borrowedSection">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User ID</th>
+                                <th>Amount</th>
+                                <th>Due Date</th>
+                                <th>Date & Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="borrowedTableRows">
+                            <tr>
+                                <td>001</td><td>1</td><td>002 Books</td><td>13-03-2024</td><td>25-02-2024 • 10:39:43</td>
+                                <td><iconify-icon icon="mdi:book-check" width="20"></iconify-icon></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Overdue Table -->
+                <div id="overdueSection" class="d-none">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Book</th>
+                                <th>Days Overdue</th>
+                                <th>Fine</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>Book Title</td>
+                                <td>4</td>
+                                <td>$10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- JS FILES -->
+    <script src="jsFiles/AdminCatalog.js"></script>
+    <script src="Scripts/AdminTheme.js"></script>
+
+</body>
+
+</html>

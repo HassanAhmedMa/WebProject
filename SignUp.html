@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>BookWorm Sign Up</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="StyleSheets/style.css">
+
+</head>
+
+<body class="vh-100 theme-light">
+
+    <!-- Theme Toggle -->
+    <div id="themeToggle" class="theme-switch position-absolute m-3" style="top:10px; right:10px;">
+        <div class="switch-track">
+            <div class="switch-thumb d-flex justify-content-center align-items-center">
+                <iconify-icon id="sunIcon" icon="mdi:weather-sunny" width="18"></iconify-icon>
+                <iconify-icon id="moonIcon" icon="mdi:weather-night" width="18" style="display:none;"></iconify-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid h-100">
+        <div class="row h-100 g-0">
+
+            <!-- LEFT SIDE (Black Panel with Rounded Corner) -->
+            <div id="leftPanel"
+                class="col-md-6 d-flex flex-column justify-content-center align-items-center text-center left-panel"
+                style="border-top-right-radius: 60px; border-bottom-right-radius: 60px;">
+
+                <iconify-icon icon="mdi:library" width="100" height="100" class="mb-4"></iconify-icon>
+
+                <h1 class="fw-light mb-0" style="font-size: 3rem;">BookWorm</h1>
+                <p class="text-uppercase small mt-0 mb-5" style="letter-spacing:4px;">Library</p>
+
+                <p class="mb-3">Already have Account? Sign In now.</p>
+
+                <button onclick="location.href='index.html'" class="btn btn-outline-accent px-5 py-3 fw-semibold">
+                    SIGN IN
+                </button>
+            </div>
+
+            <!-- RIGHT SIDE (Form Panel) -->
+            <div id="rightPanel"
+                class="col-md-6 d-flex flex-column justify-content-center px-5 right-panel">
+
+                <div class="text-center mb-5">
+                    <h1 class="fw-bold">Sign Up</h1>
+                    <iconify-icon icon="mdi:library" width="55" class="ms-2"></iconify-icon>
+                    <p class="text-muted mt-3">Please provide your information to sign up.</p>
+                </div>
+
+                <!-- Sign Up Form -->
+                <div class="mx-auto w-100" style="max-width: 420px;">
+                    <form>
+                        <input type="text" class="form-control rounded-pill mb-3 p-3" placeholder="Name">
+                        <input type="email" class="form-control rounded-pill mb-3 p-3" placeholder="Email">
+
+                        <div class="d-flex gap-3">
+                            <input type="text" class="form-control rounded-pill mb-3 p-3" placeholder="Username">
+                            <input type="password" class="form-control rounded-pill mb-3 p-3" placeholder="Password">
+                        </div>
+
+                        <button class="btn btn-accent w-100 p-3 fw-semibold rounded-pill mt-3">
+                            SIGN UP
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="jsFiles/index.js"></script>
+
+</body>
+
+</html>

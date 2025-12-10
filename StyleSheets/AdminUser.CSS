@@ -1,0 +1,253 @@
+/* ============================================================
+   COLOR VARIABLES
+============================================================ */
+:root {
+    --light-bg: #FAF3E1;
+    --light-secondary: #F5E7C6;
+    --dark-bg: #262626;
+    --dark-panel: #333;
+    --accent: #FF6D1F;
+    --black: #000;
+    --text-dark: #222;
+    --text-light: #fff;
+}
+
+/* ============================================================
+   GLOBAL PAGE BACKGROUND
+============================================================ */
+body.theme-light {
+    background: var(--light-bg);
+    color: var(--text-dark);
+}
+
+body.theme-dark {
+    background: var(--dark-bg);
+    color: var(--text-light);
+}
+
+/* ============================================================
+   SIDEBAR
+============================================================ */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Light mode */
+body.theme-light .sidebar {
+    background: var(--light-secondary);
+    color: var(--accent) !important;
+}
+
+/* Dark mode */
+body.theme-dark .sidebar {
+    background: #111;
+    color: var(--accent) !important;
+}
+
+/* Sidebar links */
+.sidebar .nav-link,
+.sidebar iconify-icon {
+    color: var(--accent) !important;
+    font-size: 15px;
+}
+
+/* Active link */
+.sidebar .nav-link.active {
+    font-weight: bold;
+}
+
+/* Hover */
+.sidebar .nav-link:hover {
+    background-color: rgba(255,255,255,0.12) !important;
+    border-radius: 6px;
+}
+
+/* ============================================================
+   TOP BAR
+============================================================ */
+#dateTimeBox {
+    font-size: 14px;
+}
+
+body.theme-dark #dateTimeBox {
+    color: #fff;
+}
+
+/* ============================================================
+   CONTENT BOX (main large container)
+============================================================ */
+.content-box {
+    border-radius: 12px;
+}
+
+/* Light mode */
+body.theme-light .content-box {
+    background: var(--light-secondary);
+    color: var(--text-dark);
+}
+
+/* Dark mode */
+body.theme-dark .content-box {
+    background: var(--dark-panel);
+    color: var(--text-light);
+}
+
+/* ============================================================
+   TABLE STYLING
+============================================================ */
+.content-box table,
+.content-box table tr,
+.content-box table th,
+.content-box table td {
+    background: transparent !important;
+}
+
+/* Light mode table colors */
+body.theme-light .content-box table th,
+body.theme-light .content-box table td {
+    border-color: rgba(0,0,0,0.15);
+    color: #000;
+}
+
+/* Dark mode table colors */
+body.theme-dark .content-box table th,
+body.theme-dark .content-box table td {
+    border-color: rgba(255,255,255,0.25);
+    color: #fff !important;
+}
+
+/* Row hover */
+.content-box table tr:hover td {
+    background-color: rgba(255,255,255,0.08) !important;
+    transition: 0.15s ease;
+}
+
+/* ============================================================
+   THEME TOGGLE SWITCH
+============================================================ */
+.theme-switch {
+    cursor: pointer;
+}
+
+.switch-track {
+    width: 60px;
+    height: 28px;
+    background: #ddd;
+    border-radius: 50px;
+    padding: 3px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.switch-thumb {
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Move thumb in dark mode */
+body.theme-dark .switch-thumb {
+    transform: translateX(32px);
+}
+
+/* Dark mode track */
+body.theme-dark .switch-track {
+    background: #444;
+}
+
+/* Icons */
+#sunIcon { display: none; }
+body.theme-light #sunIcon { display: block; }
+
+body.theme-dark #moonIcon { display: block; }
+body.theme-light #moonIcon { display: none; }
+
+/* ============================================================
+   POPUPS BASE STYLING
+============================================================ */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 450px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Inputs */
+.popup-input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+}
+
+/* Buttons */
+.popup-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-cancel {
+    background: #e5e5e5;
+    color: #000;
+}
+
+.popup-add {
+    background: #000;
+    color: #fff;
+}
+
+/* ============================================================
+   POPUP DARK MODE OVERRIDES (force white popup)
+============================================================ */
+body.theme-dark .popup-box {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+body.theme-dark .popup-input {
+    background: #fff !important;
+    border-color: #444 !important;
+    color: #000 !important;
+}
+
+body.theme-dark .popup-btn.popup-cancel {
+    background: #e5e5e5 !important;
+    color: #000 !important;
+}
+
+body.theme-dark .popup-btn.popup-add {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+body.theme-dark .popup-box * {
+    color: #000 !important;
+}
