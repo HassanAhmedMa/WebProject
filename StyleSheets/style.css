@@ -112,3 +112,10 @@ body.theme-dark #moonIcon { display: block; }
 body.theme-dark .text-muted {
     color: #ffffff !important;
 }
+
+.error-msg {
+    color: #e63946;        
+    font-size: 0.85rem;
+    margin-left: 10px;
+    display: none;
+}
