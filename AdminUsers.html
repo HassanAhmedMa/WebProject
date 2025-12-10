@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookWorm | User Management</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookWorm | User Management</title>
 
+  <!-- Bootstrap CSS -->
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,35 +21,31 @@
 </head>
 
 <body class="theme-light">
+  <div class="d-flex h-100">
 
-    <div class="d-flex h-100">
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar p-4 d-flex flex-column" aria-label="Main navigation">
+      <div class="text-center mb-5">
+        <iconify-icon icon="mdi:library" width="70" class="mb-3" aria-hidden="true"></iconify-icon>
+        <h2 class="fw-light mb-0">BookWorm</h2>
+        <p class="text-uppercase small mt-0">LIBRARY</p>
+      </div>
 
-        <!-- ================= SIDEBAR ================= -->
-        <aside class="sidebar p-4 d-flex flex-column">
-
-            <div class="text-center mb-5">
-                <iconify-icon icon="mdi:library" width="70" class="mb-3"></iconify-icon>
-                <h2 class="fw-light mb-0">BookWorm</h2>
-                <p class="text-uppercase small mt-0">LIBRARY</p>
-            </div>
-
-            <nav class="flex-grow-1">
-                <ul class="list-unstyled">
-
+      <!-- ✔ Correct, valid links + icons (no red iconify tags) -->
+      <nav class="flex-grow-1" aria-label="Sidebar menu">
+        <ul class="list-unstyled mb-0">
                     <li class="mb-3">
                         <a href="AdminDashboard.html" class="nav-link">
                             <iconify-icon icon="mdi:view-dashboard-outline" width="20" class="me-2"></iconify-icon>
                             Dashboard
                         </a>
                     </li>
-
                     <li class="mb-3">
                         <a href="AdminCatalog.html" class="nav-link">
                             <iconify-icon icon="mdi:bookshelf" width="20" class="me-2"></iconify-icon>
                             Catalog
                         </a>
                     </li>
-
                     <li class="mb-3">
                         <a href="AdminBooks.html" class="nav-link">
                             <iconify-icon icon="mdi:book-outline" width="20" class="me-2"></iconify-icon>
@@ -63,108 +60,224 @@
                         </a>
                     </li>
 
+                    <li class="mb-3">
+                        <a href="AdminBranches.html" class="nav-link">
+                            <iconify-icon icon="mdi:office-building" width="20" class="me-2"></iconify-icon>
+                            Branches
+                        </a>
+                    </li>
 
-
-                </ul>
-            </nav>
+        </ul>
+      </nav>
 
             <a href="index.html" class="nav-link mt-auto">
                 <iconify-icon icon="mdi:logout" width="20" class="me-2"></iconify-icon>
                 Log Out
             </a>
-        </aside>
+    </aside>
 
-        <!-- ================= MAIN CONTENT ================= -->
-        <main class="flex-grow-1 p-4">
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="flex-grow-1 p-4">
+      <!-- TOP BAR -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex align-items-center">
+          <iconify-icon icon="mdi:account-circle" width="40" class="me-2" aria-hidden="true"></iconify-icon>
+          <div>
+            <div class="fw-bold">Nisal Gunasekara</div>
+            <small>Admin</small>
+          </div>
+        </div>
 
-            <!-- TOP BAR -->
-            <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex align-items-center gap-3">
+          <div id="dateTimeBox" class="text-end" aria-live="polite"></div>
 
-                <div class="d-flex align-items-center">
-                    <iconify-icon icon="mdi:account-circle" width="40" class="me-2"></iconify-icon>
-                    <div>
-                        <div class="fw-bold">Nisal Gunasekara</div>
-                        <small>Admin</small>
-                    </div>
-                </div>
-
-                <div class="d-flex align-items-center gap-3">
-                    <div id="dateTimeBox" class="text-end"></div>
-
-                    <div id="themeToggle" class="theme-switch">
-                        <div class="switch-track">
-                            <div class="switch-thumb d-flex justify-content-center align-items-center">
-                                <iconify-icon id="sunIcon" icon="mdi:weather-sunny" width="18"></iconify-icon>
-                                <iconify-icon id="moonIcon" icon="mdi:weather-night" width="18" style="display:none;"></iconify-icon>
-                            </div>
-                        </div>
-                    </div>
-
-                    <iconify-icon icon="mdi:cog-outline" width="26"></iconify-icon>
-                </div>
+          <!-- Top-right theme toggle: AdminCatalog.js flips theme-light/theme-dark on <body> -->
+          <button id="themeToggle"
+                  class="theme-switch btn p-0 border-0 bg-transparent"
+                  type="button"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Toggle theme">
+            <div class="switch-track">
+              <div class="switch-thumb d-flex justify-content-center align-items-center">
+                <iconify-icon id="sunIcon" icon="mdi:weather-sunny" width="18" aria-hidden="true"></iconify-icon>
+                <iconify-icon id="moonIcon" icon="mdi:weather-night" width="18" aria-hidden="true"></iconify-icon>
+              </div>
             </div>
+          </button>
 
-            <!-- PAGE TITLE + BUTTON + SEARCH -->
-            <div class="d-flex justify-content-between align-items-center mb-3">
+          <button class="btn btn-link p-0" type="button" aria-label="Settings">
+            <iconify-icon icon="mdi:cog-outline" width="26" aria-hidden="true"></iconify-icon>
+          </button>
+        </div>
+      </div>
 
-                <h4 class="fw-bold">User Management</h4>
+      <!-- PAGE TITLE + BUTTON + SEARCH -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold mb-0">User Management</h4>
 
-                <div class="d-flex align-items-center gap-3">
+        <div class="d-flex align-items-center gap-3">
+          <button id="addUserBtn" class="btn btn-dark d-flex align-items-center" type="button">
+            <iconify-icon icon="mdi:account-plus" width="18" class="me-1" aria-hidden="true"></iconify-icon>
+            Add User
+          </button>
 
-                    <button id="addUserBtn" class="btn btn-dark d-flex align-items-center">
-                        <iconify-icon icon="mdi:account-plus" width="18" class="me-1"></iconify-icon>
-                        Add User
-                    </button>
+          <div class="input-group" style="width: 250px;">
+            <span class="input-group-text bg-white">
+              <iconify-icon icon="mdi:magnify" width="18" aria-hidden="true"></iconify-icon>
+            </span>
+            <input id="searchInputUsers" type="text" class="form-control"
+                   placeholder="Search by ID, Name, Email or Username" aria-label="Search users" />
+          </div>
+        </div>
+      </div>
 
-                    <div class="input-group" style="width: 250px;">
-                        <span class="input-group-text bg-white">
-                            <iconify-icon icon="mdi:magnify" width="18"></iconify-icon>
-                        </span>
-                        <input type="text" class="form-control" placeholder="Search by ID or Name">
-                    </div>
+      <!-- CONTENT BOX -->
+      <section class="content-box p-4 rounded-3 shadow-sm">
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Username</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <!-- Example row -->
+              <tr data-id="1">
+                <td>1</td>
+                <td>Prabath Jayasuriya</td>
+                <td>prabathjaylk@gmail.com</td>
+                <td>prabathjay</td>
+                <td class="text-nowrap">
+                  <!-- Icons you requested: pencil/edit, trash/delete, eye/view -->
+                  <iconify-icon icon="mdi:pencil" class="me-3 edit-user-icon" aria-hidden="true"></iconify-icon>
+                  <iconify-icon icon="mdi:trash-can" class="me-3 delete-user-icon" aria-hidden="true"></iconify-icon>
+                  <iconify-icon icon="mdi:account-eye" class="view-user-icon" aria-hidden="true"></iconify-icon>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-                </div>
+      <!-- ======================== ADD USER POPUP ======================== -->
+      <div id="addUserOverlay" class="popup-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="addUserTitle" tabindex="-1">
+        <div class="popup-box">
+          <div class="popup-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <iconify-icon icon="mdi:account-plus" width="30" class="me-2" aria-hidden="true"></iconify-icon>
+              <h4 id="addUserTitle" class="m-0">Add User</h4>
             </div>
+            <button class="popup-close-btn" id="closeUserPopupBtn" type="button" aria-label="Close">
+              <iconify-icon icon="mdi:close" width="22" aria-hidden="true"></iconify-icon>
+            </button>
+          </div>
+          <hr />
+          <div class="popup-body">
+            <input type="text" id="userId" class="popup-input" placeholder="User ID (unique)" required />
+            <small id="userIdWarning" class="validation-text"></small>
 
-            <!-- ================= CONTENT TABLE ================= -->
-            <div class="content-box p-4 rounded-3 shadow-sm">
+            <input type="text" id="userName" class="popup-input" placeholder="Full Name" required />
+            <input type="email" id="userEmail" class="popup-input" placeholder="Email" required />
+            <small id="userEmailWarning" class="validation-text"></small>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Username</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+            <input type="text" id="userUsername" class="popup-input" placeholder="Username" required />
+          </div>
+          <div class="popup-footer d-flex gap-3">
+            <button id="cancelUserPopupBtn" class="popup-btn popup-cancel" type="button">CANCEL</button>
+            <button id="addUserConfirmBtn" class="popup-btn popup-add" type="button" disabled>ADD</button>
+          </div>
+        </div>
+      </div>
 
-                    <tbody id="usersTableBody">
-                        <!-- Example row -->
-                        <tr>
-                            <td>1</td>
-                            <td>Prabath Jayasuriya</td>
-                            <td>prabathjaylk@gmail.com</td>
-                            <td>prabathjay</td>
-
-                            <td>
-                                <iconify-icon icon="mdi:pencil" class="me-3 edit-user-icon"></iconify-icon>
-                                <iconify-icon icon="mdi:trash-can" class="me-3 delete-user-icon"></iconify-icon>
-                                <iconify-icon icon="mdi:account-eye" class="view-user-icon"></iconify-icon>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+      <!-- ======================== DELETE USER POPUP ======================== -->
+      <div id="deleteUserPopupOverlay" class="popup-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="deleteUserTitle" tabindex="-1">
+        <div class="popup-box">
+          <div class="popup-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <iconify-icon icon="mdi:trash-can" width="30" class="me-2" aria-hidden="true"></iconify-icon>
+              <h4 id="deleteUserTitle" class="m-0">Delete Confirmation</h4>
             </div>
+            <button id="deleteUserCloseBtn" class="popup-close-btn" type="button" aria-label="Close">
+              <iconify-icon icon="mdi:close" width="22" aria-hidden="true"></iconify-icon>
+            </button>
+          </div>
+          <hr />
+          <div class="popup-body text-center">
+            <p>"Are you certain you wish to proceed with the deletion of the selected user?"</p>
+          </div>
+          <div class="popup-footer d-flex justify-content-center">
+            <button id="deleteUserConfirmBtn" class="popup-btn popup-add" style="width: 150px;" type="button">CONFIRM</button>
+          </div>
+        </div>
+      </div>
 
-        </main>
+      <!-- ======================== VIEW USER POPUP ======================== -->
+      <div id="viewUserOverlay" class="popup-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="viewUserTitle" tabindex="-1">
+        <div class="popup-box" style="max-width: 700px;">
+          <div class="popup-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <iconify-icon icon="mdi:account-eye" width="30" class="me-2" aria-hidden="true"></iconify-icon>
+              <h4 id="viewUserTitle" class="m-0">View User</h4>
+            </div>
+            <button id="viewUserCloseBtn" class="popup-close-btn" type="button" aria-label="Close">
+              <iconify-icon icon="mdi:close" width="22" aria-hidden="true"></iconify-icon>
+            </button>
+          </div>
+          <hr />
+          <div class="p-3 d-flex justify-content-between align-items-start view-content-box">
+            <div>
+              <p><strong>ID:</strong> <span id="viewUserId"></span></p>
+              <p><strong>Name:</strong> <span id="viewUserName"></span></p>
+              <p><strong>Email:</strong> <span id="viewUserEmail"></span></p>
+              <p><strong>Username:</strong> <span id="viewUserUsername"></span></p>
+            </div>
+            <div style="border-left: 1px solid #ccc; padding-left: 20px;">
+              <p><strong>Saved By:</strong></p>
+              <p>Nisal Gunasekara<br />(Admin)</p>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <button id="viewUserCloseBtn2" class="popup-btn popup-add" style="width: 200px;" type="button">CLOSE</button>
+          </div>
+        </div>
+      </div>
 
-    </div>
+      <!-- ======================== EDIT USER POPUP ======================== -->
+      <div id="editUserOverlay" class="popup-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="editUserTitle" tabindex="-1">
+        <div class="popup-box">
+          <div class="popup-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <iconify-icon icon="mdi:pencil" width="30" class="me-2" aria-hidden="true"></iconify-icon>
+              <h4 id="editUserTitle" class="m-0">Update User</h4>
+            </div>
+            <button class="popup-close-btn" id="editUserCloseBtn" type="button" aria-label="Close">
+              <iconify-icon icon="mdi:close" width="22" aria-hidden="true"></iconify-icon>
+            </button>
+          </div>
+          <hr />
+          <div class="popup-body">
+            <input type="text" id="editUserId" class="popup-input" disabled />
+            <input type="text" id="editUserName" class="popup-input" placeholder="Full Name" required />
+            <input type="email" id="editUserEmail" class="popup-input" placeholder="Email" required />
+            <input type="text" id="editUserUsername" class="popup-input" placeholder="Username" required />
+          </div>
+          <div class="popup-footer d-flex gap-3">
+            <button id="editUserCancelBtn" class="popup-btn popup-cancel" type="button">CANCEL</button>
+            <button id="editUserConfirmBtn" class="popup-btn popup-add" type="button">UPDATE</button>
+          </div>
+        </div>
+      </div>
 
+    </main>
+  </div>
+
+  <!-- ======================== SCRIPTS (order matters) ======================== -->
     <script src="jsFiles/AdminUsers.js"></script>
-    <script src="Scripts/AdminTheme.js"></script>
-
+    <script src="jsFiles/AdminCatalog.js"></script>
 </body>
 </html>
