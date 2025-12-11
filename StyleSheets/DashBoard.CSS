@@ -1,0 +1,96 @@
+.dashboard-title {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .dashboard-subtitle {
+            color: gray;
+            margin-bottom: 25px;
+        }
+
+        .dash-card {
+            background: var(--light-secondary);
+            padding: 20px;
+            border-radius: 14px;
+            transition: 0.2s;
+        }
+
+        body.theme-dark .dash-card {
+            background: var(--dark-panel);
+        }
+
+        .dash-card-label {
+            font-size: 14px;
+            color: #777;
+        }
+
+        body.theme-dark .dash-card-label {
+            color: #bbb;
+        }
+
+        .dash-card-value {
+            font-size: 34px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .dash-card-subtext {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .activity-item {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body.theme-dark .activity-item {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .activity-title {
+            font-weight: 600;
+        }
+
+        .activity-status {
+            padding: 5px 12px;
+            font-size: 13px;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .activity-status.returned {
+            background: #d4f8d4;
+            color: #167016;
+        }
+
+        .activity-status.checked {
+            background: #ffe9c7;
+            color: #b77400;
+        }
+
+        .quick-action-btn {
+            width: 100%;
+            background: var(--light-secondary);
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        body.theme-dark .quick-action-btn {
+            background: var(--dark-panel);
+        }
+
+        .quick-action-btn:hover {
+            opacity: 0.9;
+        }

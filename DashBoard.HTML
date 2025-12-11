@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookWorm | Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="StyleSheets/AdminCatalogStyleSheet.css" />
+    <link rel="stylesheet" href="StyleSheets/DashBoard.CSS" />
+
+    <!-- OPTIONAL: PAGE-SPECIFIC STYLE -->
+
+</head>
+
+<body class="theme-light">
+
+<div class="d-flex h-100">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar text-white p-4 d-flex flex-column">
+
+            <div class="text-center mb-5">
+                <iconify-icon icon="mdi:library" width="70" class="mb-3"></iconify-icon>
+                <h2 class="fw-light mb-0">BookWorm</h2>
+                <p class="text-uppercase small mt-0">LIBRARY</p>
+            </div>
+
+            <nav class="flex-grow-1">
+                <ul class="list-unstyled">
+
+                    <li class="mb-3">
+                        <a href="#" class="nav-link text-white">
+                            <iconify-icon icon="mdi:view-dashboard-outline" width="20" class="me-2"></iconify-icon>
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li class="mb-3 active">
+                        <a href="AdminCatalog.html" class="nav-link text-white">
+                            <iconify-icon icon="mdi:bookshelf" width="20" class="me-2"></iconify-icon>
+                            Catalog
+                        </a>
+                    </li>
+
+                    <li class="mb-3">
+                        <a href="AdminBooks.html" class="nav-link text-white">
+                            <iconify-icon icon="mdi:book-outline" width="20" class="me-2"></iconify-icon>
+                            Books
+                        </a>
+                    </li>
+
+                    <li class="mb-3">
+                        <a href="AdminUsers.html" class="nav-link text-white">
+                            <iconify-icon icon="mdi:account-group-outline" width="20" class="me-2"></iconify-icon>
+                            Users
+                        </a>
+                    </li>
+
+
+
+                </ul>
+            </nav>
+
+            <a href="index.html" class="nav-link text-white mt-auto">
+                <iconify-icon icon="mdi:logout" width="20" class="me-2"></iconify-icon>
+                Log Out
+            </a>
+        </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="flex-grow-1 p-4">
+
+        <!-- TOP BAR -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <!-- ADMIN INFO -->
+            <div class="d-flex align-items-center">
+                <iconify-icon icon="mdi:account-circle" width="40" class="me-2"></iconify-icon>
+                <div>
+                    <div class="fw-bold">Hassan Ahmed</div>
+                    <small>Admin</small>
+                </div>
+            </div>
+
+            <!-- TIME + TOGGLE + SETTINGS -->
+            <div class="d-flex align-items-center gap-3">
+
+                <div id="dateTimeBox" class="text-end"></div>
+
+                <div id="themeToggle" class="theme-switch">
+                    <div class="switch-track">
+                        <div class="switch-thumb d-flex justify-content-center align-items-center">
+                            <iconify-icon id="sunIcon" icon="mdi:weather-sunny" width="18"></iconify-icon>
+                            <iconify-icon id="moonIcon" icon="mdi:weather-night" width="18" style="display:none;"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+
+                <iconify-icon icon="mdi:cog-outline" width="26"></iconify-icon>
+            </div>
+        </div>
+
+        <!-- ================= DASHBOARD CONTENT ================= -->
+
+        <h2 class="dashboard-title">Dashboard</h2>
+        <p class="dashboard-subtitle">Welcome back! Here's your library overview.</p>
+
+        <!-- TOP CARDS -->
+        <div class="row g-4 mb-4">
+
+            <div class="col-md-3">
+                <div class="dash-card">
+                    <div class="dash-card-label">Total Books</div>
+                    <div class="dash-card-value">26</div>
+                    <div class="dash-card-subtext">16 available</div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="dash-card">
+                    <div class="dash-card-label">Active Patrons</div>
+                    <div class="dash-card-value">3</div>
+                    <div class="dash-card-subtext">of 4 total</div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="dash-card">
+                    <div class="dash-card-label">Checked Out</div>
+                    <div class="dash-card-value">1</div>
+                    <div class="dash-card-subtext">books currently</div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="dash-card">
+                    <div class="dash-card-label">Overdue</div>
+                    <div class="dash-card-value">0</div>
+                    <div class="dash-card-subtext">need attention</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TWO PANELS BELOW -->
+        <div class="row g-4">
+
+            <!-- LEFT: RECENT ACTIVITY -->
+            <div class="col-lg-8">
+                <div class="content-box p-4 shadow-sm rounded-3">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold">Recent Activity</h5>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+
+                    <div class="activity-item">
+                        <div>
+                            <div class="activity-title">The Pragmatic Programmer</div>
+                            <small>John Smith</small>
+                        </div>
+                        <div class="activity-status returned">returned</div>
+                        <small>Nov 20, 2025</small>
+                    </div>
+
+                    <div class="activity-item">
+                        <div>
+                            <div class="activity-title">To Kill a Mockingbird</div>
+                            <small>Emily Johnson</small>
+                        </div>
+                        <div class="activity-status checked">checked out</div>
+                        <small>Dec 5, 2025</small>
+                    </div>
+
+                    <div class="activity-item">
+                        <div>
+                            <div class="activity-title">1984</div>
+                            <small>John Smith</small>
+                        </div>
+                        <div class="activity-status returned">returned</div>
+                        <small>Nov 14, 2025</small>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT: QUICK ACTIONS -->
+            <div class="col-lg-4">
+                <div class="content-box p-4 shadow-sm rounded-3">
+
+                    <h5 class="fw-bold mb-3">Quick Actions</h5>
+
+                    <button class="quick-action-btn">
+                        <iconify-icon icon="mdi:book-plus" width="20"></iconify-icon>
+                        Add New Book
+                    </button>
+
+                    <button class="quick-action-btn">
+                        <iconify-icon icon="mdi:account-plus" width="20"></iconify-icon>
+                        Register New Patron
+                    </button>
+
+                    <button class="quick-action-btn">
+                        <iconify-icon icon="mdi:book-arrow-right" width="20"></iconify-icon>
+                        Check Out Book
+                    </button>
+
+                    <button class="quick-action-btn">
+                        <iconify-icon icon="mdi:alert-circle-outline" width="20"></iconify-icon>
+                        View Overdue Books
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- JS FILES -->
+<script src="Scripts/AdminTheme.js"></script>
+<script src="jsFiles/Global.js"></script>
+
+</body>
+</html>
